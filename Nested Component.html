@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Nested Component</title>
+    <script src="https://unpkg.com/react@16/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+</head>
+
+<body>
+    <div id="root"></div>
+
+    <script type="text/babel">
+        //membuat komponen Message
+        class Message extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <small>{this.props.sender}:</small>
+                        <p>{this.props.content}</p>
+                        <hr />
+                    </div>
+                );
+            }
+        }
+
+        //membuat komponen ChatBox
+        class ChatBox extends React.Component {
+            render() {
+                return (
+                    <div>
+                        <Message sender="Bunga" content="Siram Aku Dong...!" />
+                        <Message sender="Hujan" content="Sabar Broh, Mba Rara nyerang aku nih" />
+                        <Message sender="Bunga" content="Oke! Semangat Broh.." />
+                    </div>
+            );
+        }
+    } // render komponen ke RealDOM
+    ReactDOM.render( <ChatBox/>, document.getElementById("saya"));
+    ReactDOM.render( <Header/>, document.getElementById("saya"));
+    </script>
+</body>
+
+</html>
